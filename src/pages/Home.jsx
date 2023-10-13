@@ -6,11 +6,15 @@ import { Fade } from 'react-slideshow-image';
 
 import 'react-slideshow-image/dist/styles.css'
 
+
+
 const Home = () => { 
 
+
+
   return (
-    <div className=''>
-        <div className='-z-10 top-0 left-0 absolute h-screen w-full '>
+    
+        <div className='-z-10 top-0 left-0 absolute h-screen w-screen  '>
             <Fade className='' >
                     <div className={`flex items-center justify-center lg:justify-start bg-cover h-screen bg-none lg:bg-slider-image4 px-20 `}>
                         <div className='flex flex-col gap-7'>
@@ -52,34 +56,27 @@ const Home = () => {
                 <CategoryCard 
                     title = "Women"
                     text = "Spring 2023"
-                    image = "/category/woman.jpg"
+                    image = "category/woman.jpg"
                 />
                 <CategoryCard 
                     title = "Men"
                     text = "Spring 2023"
-                    image = "/category/man.jpg"
+                    image = "category/man.jpg"
                 />
                 <CategoryCard 
                     title = "Jewelery"
                     text = "Spring 2023"
-                    image = "/category/jewelery.jpg"
+                    image = "category/jewelery.jpg"
                 />
                 <CategoryCard 
                     title = "Electronics"
                     text = "New Tech"
-                    image = "/category/eletronics.jpg"
+                    image = "category/eletronics.jpg"
                 />
             </div>
-            
+
+            <Products />
         </div>
-
-        
-
-        
-
-        
-    </div>
-    
   )
 }
 

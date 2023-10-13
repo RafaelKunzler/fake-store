@@ -1,8 +1,21 @@
 import { Menu, Search, ShoppingCart, X } from 'lucide-react'
 
+import {
+    Dialog,
+    DialogContent,    
+    DialogTrigger,
+} from "@/components/ui/dialog"
+
+import {db} from '../../firebase/config'
+
+import { useAuthentication } from '@/hooks/useAuthentication'
+
+import { useAuthValue } from '@/context/AuthContext'
+
 import { NavLink } from 'react-router-dom'
 import { Separator } from './ui/separator'
 import { useState } from 'react'
+import LoginPopUp from './LoginPopUp'
 
 const Navbar = () => {
 
@@ -11,6 +24,9 @@ const Navbar = () => {
     const handleToggleMenu = () => {
         setIsOpen(isOpen === true ? false : true)
     }
+
+    const { user } = useAuthValue()
+    const { logout } = useAuthentication()
 
   return (
     
@@ -22,7 +38,25 @@ const Navbar = () => {
             <div className='flex gap-6'>
                 <p>Help & FAQs</p>
                 <Separator orientation="vertical" />
-                <p>My Account</p>
+                {!user &&( 
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <p className='cursor-pointer '>Login</p>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <LoginPopUp />
+                            </DialogContent>
+                        </Dialog>)
+                      
+                }
+                {user && (
+                    <>
+                        <p className='cursor-pointer'>My Account</p>
+                        <Separator orientation="vertical" />
+                        <p onClick={logout} className='cursor-pointer'>Logout</p>
+                    
+                    </>
+                )}
             </div>
         </div>
 
@@ -38,6 +72,7 @@ const Navbar = () => {
                     <NavLink to='/blog'><li className='hover:text-primary'>Blog</li></NavLink>
                     <NavLink to='/about'><li className='hover:text-primary'>About</li></NavLink>
                     <NavLink to='/contact'><li className='hover:text-primary'>Contact</li></NavLink>
+                    
                 </ul>
             </div>
 
@@ -48,16 +83,29 @@ const Navbar = () => {
         </div>
 
         {isOpen ? 
-            <div>
-                <div className='xl:hidden flex items-center py-6 lg:py-0 lg:flex-row justify-center'>
-                <ul className='flex gap-4 lg:flex-row '>
-                    <NavLink to='/'><li onClick={() => setIsOpen(false)} className='hover:text-primary' >Home</li></NavLink>
-                    <NavLink to='/shop'><li onClick={() => setIsOpen(false)}  className='hover:text-primary'>Shop</li></NavLink>
-                    <NavLink to='/blog'><li onClick={() => setIsOpen(false)}  className='hover:text-primary'>Blog</li></NavLink>
-                    <NavLink to='/about'><li onClick={() => setIsOpen(false)}  className='hover:text-primary'>About</li></NavLink>
-                    <NavLink to='/contact'><li onClick={() => setIsOpen(false)}  className='hover:text-primary'>Contact</li></NavLink>
-                </ul>
-            </div>
+            <div className=''>
+                <div className='lg:hidden gap-4 flex-col flex items-center py-6 justify-center'>
+                    <ul className='flex gap-4 flex-wrap md:flex-row px-6'>
+                        <NavLink to='/'><li onClick={() => setIsOpen(false)} className='hover:text-primary' >Home</li></NavLink>
+                        <NavLink to='/shop'><li onClick={() => setIsOpen(false)}  className='hover:text-primary'>Shop</li></NavLink>
+                        <NavLink to='/blog'><li onClick={() => setIsOpen(false)}  className='hover:text-primary'>Blog</li></NavLink>
+                        <NavLink to='/about'><li onClick={() => setIsOpen(false)}  className='hover:text-primary'>About</li></NavLink>
+                        <NavLink to='/contact'><li onClick={() => setIsOpen(false)}  className='hover:text-primary'>Contact</li></NavLink>
+                    </ul>
+                    {user ? 
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <p className='cursor-pointer font-bold'>Login</p>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <LoginPopUp />
+                            </DialogContent>
+                        </Dialog>
+                     : <p onClick={logout}>Logout</p>
+                    }
+                    
+                    
+                </div>
             </div> 
         : ''}
 
