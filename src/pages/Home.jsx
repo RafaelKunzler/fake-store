@@ -1,5 +1,6 @@
 
 import CategoryCard from '@/components/CategoryCard';
+import Footer from '@/components/Footer';
 import Products from '@/components/Products';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
@@ -15,7 +16,7 @@ const Home = () => {
 
   return (
     
-        <div className='-z-10 top-0 left-0 absolute h-screen w-screen  '>
+        <div className='-z-10 top-0 left-0 absolute h-screen w-full'>
             <Fade className='' >
                     <div className={`flex items-center justify-center lg:justify-start bg-cover h-screen bg-none lg:bg-slider-image4 px-20 `}>
                         <div className='flex flex-col gap-7'>
@@ -91,6 +92,8 @@ const Home = () => {
             
                 <Products 
                 selected = {selected}/>
+
+                <Footer />
 
             
         </div>

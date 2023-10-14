@@ -38,11 +38,11 @@ function App() {
   }
 
   return (
-    <div>
+    <div >
       <AuthProvider value={{user}}>
         <BrowserRouter>
         <Navbar />
-          <div>
+          <div >
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/shop' element={<Shop />} />
