@@ -92,7 +92,7 @@ const Navbar = () => {
                         <NavLink to='/about'><li onClick={() => setIsOpen(false)}  className='hover:text-primary'>About</li></NavLink>
                         <NavLink to='/contact'><li onClick={() => setIsOpen(false)}  className='hover:text-primary'>Contact</li></NavLink>
                     </ul>
-                    {user ? 
+                    {!user ? 
                         <Dialog>
                             <DialogTrigger asChild>
                                 <p className='cursor-pointer font-bold'>Login</p>

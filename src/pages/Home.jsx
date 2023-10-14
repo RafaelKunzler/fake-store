@@ -2,6 +2,7 @@
 import CategoryCard from '@/components/CategoryCard';
 import Products from '@/components/Products';
 import { Button } from '@/components/ui/button';
+import { useState, useEffect } from 'react';
 import { Fade } from 'react-slideshow-image';
 
 import 'react-slideshow-image/dist/styles.css'
@@ -10,7 +11,7 @@ import 'react-slideshow-image/dist/styles.css'
 
 const Home = () => { 
 
-
+    const [selected, setSelected] = useState("all")
 
   return (
     
@@ -52,30 +53,46 @@ const Home = () => {
                         </div>                
                     </div> 
             </Fade>
-            <div className='grid md:grid-cols-2 lg:grid-cols-4 col gap-2 mt-[1vh] px-20 py-6 lg:p-20'>
-                <CategoryCard 
-                    title = "Women"
-                    text = "Spring 2023"
-                    image = "category/woman.jpg"
-                />
-                <CategoryCard 
-                    title = "Men"
-                    text = "Spring 2023"
-                    image = "category/man.jpg"
-                />
-                <CategoryCard 
-                    title = "Jewelery"
-                    text = "Spring 2023"
-                    image = "category/jewelery.jpg"
-                />
-                <CategoryCard 
-                    title = "Electronics"
-                    text = "New Tech"
-                    image = "category/eletronics.jpg"
-                />
+            <div >
+                <ul className='grid md:grid-cols-2 lg:grid-cols-4 col gap-2 mt-[1vh] px-20 py-6 lg:p-20'>
+                    <li onClick={() => setSelected("woman")}>
+                        <CategoryCard 
+                            title = "Women"
+                            text = "Spring 2023"
+                            image = "category/woman.jpg"
+                                            
+                        />
+                    </li >
+                    <li onClick={() => setSelected("man")}>
+                        <CategoryCard 
+                            title = "Men"
+                            text = "Spring 2023"
+                            image = "category/man.jpg"
+                            
+                        />
+                    </li>
+                    <li onClick={() => setSelected("jewelery")}>
+                        <CategoryCard 
+                            title = "Jewelery"
+                            text = "Spring 2023"
+                            image = "category/jewelery.jpg"
+                        />
+                    </li>
+                    <li onClick={() => setSelected("electronics")}>
+                        <CategoryCard 
+                            title = "Electronics"
+                            text = "New Tech"
+                            image = "category/eletronics.jpg"
+                        />
+                    </li>
+                </ul>
             </div>
 
-            <Products />
+            
+                <Products 
+                selected = {selected}/>
+
+            
         </div>
   )
 }
