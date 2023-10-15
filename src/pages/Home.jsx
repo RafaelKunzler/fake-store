@@ -14,6 +14,7 @@ const Home = () => {
 
     const [selected, setSelected] = useState("all")
 
+    
   return (
     
         <div className='-z-10 top-0 left-0 absolute h-screen w-full'>
