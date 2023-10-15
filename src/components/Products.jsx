@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { Command, CommandInput } from './ui/command'
 import ProductCard from './ProductCard'
+import { Search } from 'lucide-react'
 
 
 const Products = (props) => {
@@ -10,6 +11,7 @@ const Products = (props) => {
 
   const [selected, setSelected] = useState(props.selected)
   const [products, setProducts] = useState([])
+  const [searchInput, setSearchInput] = useState("")
 
   useEffect(() => {
     setSelected(props.selected)
@@ -17,6 +19,8 @@ const Products = (props) => {
 
   // get products on category
   useEffect(() => {
+    setSearchInput("")
+
     if(selected === "all") {      
       fetch(URL)
       .then(res => res.json())
@@ -47,6 +51,18 @@ const Products = (props) => {
       .then(json => setProducts(json))      
     }
   }, [selected])
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    setSelected("")
+  }
+
+  // get products on search input
+  useEffect(() => {
+    
+    setSelected("all")
+    
+  }, [searchInput])
     
 
   
@@ -62,17 +78,30 @@ const Products = (props) => {
             <li onClick={() => setSelected("woman")} className={selected === "woman" ? "underline cursor-default" : "cursor-pointer hover:underline"}>Woman</li>
             <li onClick={() => setSelected("man")} className={selected === "man" ? "underline cursor-default" : "cursor-pointer hover:underline"}>Man</li>
             <li onClick={() => setSelected("jewelery")} className={selected === "jewelery" ? "underline cursor-default" : "cursor-pointer hover:underline"}>Jewelery</li>
-            <li onClick={() => setSelected("electronics")} className={selected === "eletronics" ? "underline cursor-default" : "cursor-pointer hover:underline"}>Eletronics</li>
+            <li onClick={() => setSelected("electronics")} className={selected === "electronics" ? "underline cursor-default" : "cursor-pointer hover:underline"}>Eletronics</li>
           </ul>
                    
-          <Command className='w-80 bg-gray-200'>
-            <CommandInput placeholder="Search" />
-          </Command>
+          <form onSubmit={handleSearch}>
+            <input className='w-80 bg-gray-200 py-1 px-4'
+              placeholder=  "Search Product"    
+              value={searchInput}         
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
+          </form>
         </div>   
 
         <div id="products" className='grid py-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
 
-          {products.map(product =>
+          {products.filter((product) => {
+            if(searchInput == '') {
+              return product
+            }
+            else if(product.title.toLowerCase().includes(searchInput.toLowerCase())){
+              return product
+            }
+          })
+          
+          .map(product =>
               <ProductCard 
                 key = {product.id}
                 title = {product.title}
