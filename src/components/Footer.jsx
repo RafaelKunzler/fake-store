@@ -34,8 +34,8 @@ const Footer = () => {
         <h3 className='text-white'>GET IN TOUCH</h3>
         <p>Any questions? Let us know in store at 6th floor, 42 Wallaby Way, Sydney or call us on (12) 3456-7890</p>
         <div className='flex gap-6'>
-            <Facebook />
-            <Instagram />
+            <Facebook className='hover:text-primary cursor-pointer'/>
+            <Instagram className='hover:text-primary cursor-pointer'/>
             
         </div>
         </div>

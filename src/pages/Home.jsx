@@ -1,4 +1,6 @@
 
+
+import BackToTopButton from '@/components/BackToTopButton';
 import CategoryCard from '@/components/CategoryCard';
 import Footer from '@/components/Footer';
 import Products from '@/components/Products';
@@ -95,6 +97,7 @@ const Home = () => {
                 selected = {selected}/>
 
                 <Footer />
+                <BackToTopButton />
 
             
         </div>

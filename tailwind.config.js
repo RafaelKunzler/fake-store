@@ -77,6 +77,7 @@ module.exports = {
         'slider-image3': "url('slides/slide-03.jpg')",
         'slider-image4': "url('slides/slide-04.jpg')",     
         'main-banner' : "url('main-banner.jpg')",
+        'blog-banner' : "url('blog-banner.jpg')",
       },
     },
   },
