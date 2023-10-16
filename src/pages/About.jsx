@@ -27,6 +27,10 @@ const About = () => {
         <div className='flex flex-col gap-3' >
           <h1 className='text-2xl font-semibold'>Our Mission</h1>
           <p className='text-muted-foreground font-thin'>Mauris non lacinia magna. Sed nec lobortis dolor. Vestibulum rhoncus dignissim risus, sed consectetur erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam maximus mauris sit amet odio convallis, in pharetra magna gravida. Praesent sed nunc fermentum mi molestie tempor. Morbi vitae viverra odio. Pellentesque ac velit egestas, luctus arcu non, laoreet mauris. Sed in ipsum tempor, consequat odio in, porttitor ante. Ut mauris ligula, volutpat in sodales in, porta non odio. Pellentesque tempor urna vitae mi vestibulum, nec venenatis nulla lobortis. Proin at gravida ante. Mauris auctor purus at lacus maximus euismod. Pellentesque vulputate massa ut nisl hendrerit, eget elementum libero iaculis.</p>
+          <div className='flex flex-col gap-4 border-l-4 pl-8 pt-2 text-muted-foreground'>
+            <h3 className='italic'>Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.</h3>
+            <p className='text-sm'>- Steve Job’s</p>
+          </div>
         </div>
       </div>
 
