@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { Textarea } from '@/components/ui/textarea'
 
-import { MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 
 const Contact = () => {
 
@@ -48,7 +48,7 @@ const Contact = () => {
           </div>
 
           <div className='flex gap-6'>
-            <Phone />
+            <Mail />
             <div className='flex flex-col gap-2'>
               <h3>Sale Support</h3>
               <p className='text-primary'>contact@example.com</p>
