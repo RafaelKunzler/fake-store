@@ -47,6 +47,11 @@ const Login = () => {
         }
     }, [authError])
 
+    const handleRecruiterLogin = () => {
+        setEmail("hireme@recruiter.com")
+        setPassword("12345678")
+    }
+
 
   return (    
         <Card>
@@ -62,6 +67,10 @@ const Login = () => {
                     <div className="space-y-1">
                         <Label htmlFor="password">Password</Label>
                         <Input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password" placeholder="**********" autoComplete="on" required/>
+                    </div>
+                    <div>
+                        <span className="text-muted-foreground text-xs">Recruiter Login:</span> 
+                        <p onClick={handleRecruiterLogin} className="text-xs text-sky-400 underline hover:cursor-pointer">hireme@recruiter.com Password: 12345678</p>
                     </div>
                     {!loading && <Button onClick={handleSubmit} className="w-full">Login</Button>}
                     {loading && <Button onClick={handleSubmit} className="w-full" variant="secondary" disabled>

@@ -20,8 +20,8 @@ const Contact = () => {
         text = "Contact"                     
       />
 
-      <div className='flex border-muted-foreground border justify-between m-20 px-20 py-12'>
-        <div className='flex flex-col gap-12 w-1/2'>
+      <div className='flex flex-wrap border-muted-foreground border justify-between m-8 lg:m-20 gap-10 px-4 lg:px-20 py-12'>
+        <div className='flex flex-col gap-12 w-full lg:w-1/2'>
           <h1 className='text-3xl font-light text-center'>Send Us A Message</h1>
           <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
             <Input type="email" placeholder='Your Email Address' />
@@ -30,9 +30,9 @@ const Contact = () => {
           </form>
         </div>
         <Separator orientation="vertical"/>
-        <div className='flex flex-col justify-between'>
+        <div className='flex flex-col gap-4 justify-between'>
           <div className='flex gap-6'>
-            <MapPin />
+            <MapPin className='w-10 lg:w-auto'/>
             <div className='flex flex-col gap-2'>
               <h3>Address</h3>
               <p className='text-muted-foreground'>Fake Store Center 6th floor, 42 Wallaby Way, Sydney</p>

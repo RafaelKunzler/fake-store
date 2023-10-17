@@ -82,7 +82,7 @@ const Products = (props) => {
           </ul>
                    
           <form onSubmit={handleSearch}>
-            <input className='w-80 bg-gray-200 py-1 px-4'
+            <input className='w-full lg:w-80 bg-gray-200 py-1 px-4'
               placeholder=  "Search Product"    
               value={searchInput}         
               onChange={(e) => setSearchInput(e.target.value)}

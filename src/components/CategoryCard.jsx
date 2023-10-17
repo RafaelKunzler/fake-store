@@ -6,7 +6,7 @@ const CategoryCard = (props) => {
         <a href="#products">      
             <div className='flex w-full shadow-md border-2 hover:border-primary hover:shadow-2xl'>
                 <div className='flex w-full h-40 content-between justify-between'>
-                    <div className='w-1/2 p-3'>
+                    <div className='w-full lg:w-1/2 text-center pt-12 p-3'>
                         <h3 className="text-3xl font-bold">{props.title}</h3>
                         <p className="text-muted-foreground">{props.text}</p>
                     </div>

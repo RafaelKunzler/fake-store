@@ -12,11 +12,11 @@ const BlogCard = (props) => {
         <img src={props.image} alt=""/>
         <h1 className='text-2xl font-extrabold hover:text-primary hover:cursor-pointer'>{props.title}</h1>
         <p className='text-muted-foreground'>{props.subTitle}</p>
-        <div className='flex justify-between'>
+        <div className='flex flex-wrap justify-between gap-3'>
             <div className='flex text-muted-foreground gap-3'>
                 <p>By {props.user} </p> 
                 <Separator orientation="vertical"/>
-                <p>{props.tags}</p>
+                <p className='hidden md:block'>{props.tags}</p>
                 <Separator orientation="vertical" />
                 <p> {props.comments} Comments</p>
             </div>
